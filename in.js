@@ -29,8 +29,8 @@ function f3(){
     f5();
     this.removeEventListener("click", f3);
 }
-
 function f5(){
+    let k=0;
     for(let i=0;i<3;i++){
     if((a[i].innerText==a[i+3].innerText)&&(a[i].style.color==a[i+3].style.color)&&
     (a[i].innerText==a[i+6].innerText)&&(a[i].style.color==a[i+6].style.color)){
@@ -40,6 +40,7 @@ function f5(){
         for(let i=0;i<a.length;i++){
             a[i].removeEventListener("click", f3);
         }
+        k=1;
         break;
     }
 }
@@ -51,6 +52,7 @@ function f5(){
             for(let i=0;i<a.length;i++){
                 a[i].removeEventListener("click", f3);
             }
+            k=1;
             break;
         }
     }
@@ -61,6 +63,7 @@ function f5(){
             for(let i=0;i<a.length;i++){
                 a[i].removeEventListener("click", f3);
             }
+            k=1;
         }
     else if((a[2].innerText==a[4].innerText)&&(a[2].style.color==a[4].style.color)&&
     (a[4].innerText==a[6].innerText)&&(a[4].style.color==a[6].style.color)){
@@ -69,5 +72,9 @@ function f5(){
         for(let i=0;i<a.length;i++){
             a[i].removeEventListener("click", f3);
         }
+        k=1;
+    }
+    if((turns>8)&&(k!=1)){
+        instruction[0].textContent="It's a Draw !!"
     }
 }
